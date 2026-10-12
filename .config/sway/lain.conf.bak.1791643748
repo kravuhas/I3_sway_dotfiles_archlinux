@@ -1,0 +1,39 @@
+font pango:JetBrainsMono Nerd Font 10
+
+# janelas
+default_border pixel 2
+default_floating_border pixel 2
+gaps inner 8
+gaps outer 4
+smart_borders on
+
+# cores: borda | fundo | texto | indicador | borda da janela
+client.focused          #a78bfa #2a1a5e #e9defe #7c3aed #a78bfa
+client.focused_inactive #2a1a5e #0b0816 #8b7fb8 #2a1a5e #2a1a5e
+client.unfocused        #2a1a5e #0b0816 #8b7fb8 #2a1a5e #2a1a5e
+client.urgent           #ff4d6d #0b0816 #e9defe #ff4d6d #ff4d6d
+
+# transparência (o sway puro não faz blur)
+for_window [app_id="kitty"] opacity 0.92
+for_window [app_id="wofi"] opacity 0.95
+
+# autostart
+exec_always pkill mako; mako
+exec wl-paste --watch cliphist store
+exec swayidle -w \
+  timeout 300 'swaylock -f' \
+  timeout 600 'swaymsg "output * power off"' \
+  resume 'swaymsg "output * power on"' \
+  before-sleep 'swaylock -f'
+
+# atalhos
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
+bindsym $mod+Ctrl+l exec swaylock -f
+bindsym $mod+v exec cliphist list | wofi --dmenu | cliphist decode | wl-copy
+
+
+
+# wallpaper (waypaper)
+exec_always waypaper --restore
+bindsym $mod+w exec waypaper
+for_window [app_id="waypaper"] floating enable, resize set 900 600

@@ -1,0 +1,43 @@
+# Config for sway
+#
+# Read `man 5 sway` for a complete reference.
+
+# user config directory
+include $HOME/.config/sway/config.d/*
+include /etc/sway/outputs/*
+
+# only enable this if every app you use is compatible with wayland
+# xwayland disable
+#output * bg ~/Pictures/wallpapers/wallhaven-k77ez7.png fill
+include ~/.config/sway/lain.conf
+
+# --- swayfx-setup ---
+corner_radius 12
+smart_corner_radius enable
+default_border pixel 2
+gaps inner 8
+gaps outer 4
+
+exec swaync
+bindsym $mod+Shift+n exec swaync-client -t -sw
+# --- fim swayfx-setup ---
+
+# Arquivos locais adicionais (inclui configuração de compartilhamento de tela)
+include ~/.config/sway/config.d/*.conf
+# >>> setup-sway >>>
+# Exporta o ambiente para o systemd/D-Bus: ESSENCIAL para o portal de screencast
+exec dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP SWAYSOCK I3SOCK XCURSOR_SIZE XCURSOR_THEME
+
+# Autostart
+exec nm-applet --indicator
+exec blueman-applet
+exec /usr/lib/polkit-gnome/polkit-gnome-authentication-agent-1
+exec wl-paste --type text --watch cliphist store
+exec wl-paste --type image --watch cliphist store
+exec kanshi
+
+# Atalhos
+bindsym Mod4+space exec /home/felpz/.local/bin/screenshot region
+bindsym Print exec /home/felpz/.local/bin/screenshot full
+bindsym Mod4+v exec sh -c 'cliphist list | wofi --dmenu | cliphist decode | wl-copy'
+# <<< setup-sway <<<

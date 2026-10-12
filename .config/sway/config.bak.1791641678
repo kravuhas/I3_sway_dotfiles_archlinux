@@ -1,0 +1,12 @@
+# Config for sway
+#
+# Read `man 5 sway` for a complete reference.
+
+# user config directory
+include $HOME/.config/sway/config.d/*
+include /etc/sway/outputs/*
+
+# only enable this if every app you use is compatible with wayland
+# xwayland disable
+output * bg ~/Pictures/wallpapers/wallhaven-k77ez7.png fill
+include ~/.config/sway/lain.conf

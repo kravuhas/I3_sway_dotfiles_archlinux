@@ -1,45 +1,46 @@
-* {
-  font-family: Iosevka;
-  font-size: 12pt;
-  color: white;
-  border: none;
-  border-radius: 0;
-  box-shadow: none;
-  text-shadow: none;
-  transition-duration: 0s;
-}
+@import url("file:///home/felpz/.cache/wal/colors-waybar.css");
 
-window#waybar {
-  background: #1b182c;
-  opacity: 0.85;
-}
+* { font-family: "JetBrainsMono Nerd Font", "Noto Sans CJK JP"; font-size: 13px; border: none; border-radius: 0; min-height: 0; }
+window#waybar { background: transparent; color: @foreground; }
 
-#window,
-#memory,
-#disk,
-#pulseaudio,
-#custom-weather,
-#cpu {
-  padding-left: 1rem;
-  padding-right: 1rem;
+#custom-launcher, #custom-wall, #custom-power, #workspaces, #window, #clock, #cpu, #memory,
+#pulseaudio, #backlight, #bluetooth, #network, #battery, #tray {
+  background: alpha(@background, 0.80);
+  border: 1px solid alpha(@color4, 0.60);
+  border-radius: 12px;
+  padding: 0 14px;
+  margin: 3px 3px;
 }
+#workspaces { padding: 0 4px; }
+#workspaces button { padding: 0 9px; margin: 3px 2px; color: @color7; background: transparent; border-radius: 8px; }
+#workspaces button:hover { background: alpha(@color4, 0.35); box-shadow: none; }
+#workspaces button.focused { background: @color4; color: @background; }
+#workspaces button.urgent { background: #ff4d6d; color: @background; }
+#custom-launcher, #custom-wall { color: @color5; font-weight: bold; }
+#custom-launcher:hover, #custom-wall:hover, #custom-power:hover, #pulseaudio:hover { background: @color4; color: @background; }
+#custom-power { color: #ff4d6d; }
+#clock { color: @color5; font-weight: bold; }
+#cpu { color: @color4; }
+#memory, #battery { color: @color6; }
+#pulseaudio, #bluetooth { color: @color5; }
+#network, #backlight { color: @color4; }
+#battery.warning { color: #ffb86c; }
+#battery.critical { color: #ff4d6d; }
 
-#custom-weather {
-  padding-left: 2rem;
-  font-weight: bold;
+/* >>> taskbar-tray (setup-extras-sway) >>> */
+#taskbar button {
+    padding: 0 6px;
+    margin: 0 2px;
+    border-radius: 6px;
+    background: transparent;
 }
-
-#workspaces {
-  background: #962a54;
-  color: white;
-  font-weight: bold;
-  border-radius: 0 1rem 1rem 0;
+#taskbar button.active {
+    background: rgba(255, 255, 255, 0.15);
 }
-#workspaces button {
-  background: transparent;
+#taskbar button:hover {
+    background: rgba(255, 255, 255, 0.25);
 }
-
-#workspaces button.focused {
-  background: #7a2043;
-  border-radius: 1rem;
+#tray {
+    padding: 0 8px;
 }
+/* <<< fim taskbar-tray <<< */
