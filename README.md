@@ -14,6 +14,10 @@ Meu setup de Sway com efeitos do **SwayFX** (blur, cantos arredondados).
 - Ícones: Papirus-Dark
 - Shell: zsh
 
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/3fb39b20-062e-4a87-8f72-f42fdf201b5a" />
+<img width="1920" height="1063" alt="image" src="https://github.com/user-attachments/assets/443acd94-fa54-4a84-9e41-90a6d25c2ac0" />
+<img width="1920" height="1080" alt="image" src="https://github.com/user-attachments/assets/098f3023-1d4f-43ab-9018-ff715e7abc23" />
+
 ## Instalação
 
 ```bash
