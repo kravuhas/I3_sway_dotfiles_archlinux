@@ -23,21 +23,21 @@ client.urgent           $cl_urge $cl_urge $cl_fore $cl_urge $cl_urge
 # Display
 # AJUSTE para o seu monitor (veja: swaymsg -t get_outputs)
 # output DP-1 resolution 1920x1080@144.001Hz
-output HDMI-A-1 resolution 1920x1080
+# output HDMI-A-1 resolution 1920x1080
 
 # focus output DP-1
 
 output * background '~/.images/wallpaper.jpg' fill
 
 # workspace 1 output DP-1
-workspace 2 output HDMI-A-1
+# workspace 2 output HDMI-A-1
 # workspace 3 output DP-1
 
 workspace 1
-exec firefox
+# exec firefox
 
 workspace 3
-exec telegram-desktop
+# exec telegram-desktop
 exec discord
 
 exec 'sleep 3; swaymsg workspace 1'
