@@ -1,0 +1,50 @@
+{
+    "wlr/taskbar": {
+        "format": "{icon}",
+        "icon-size": 18,
+        "tooltip-format": "{title}",
+        "on-click": "activate",
+        "on-click-middle": "close"
+    },
+  "layer": "top",
+  "position": "top",
+  "height": 34,
+  "margin-top": 6,
+  "margin-left": 10,
+  "margin-right": 10,
+  "modules-left": ["custom/launcher", "sway/workspaces", "sway/window"],
+  "modules-center": [
+        "wlr/taskbar","clock"],
+  "modules-right": ["custom/wall", "pulseaudio", "backlight", "bluetooth", "network", "cpu", "memory", "battery", "tray", "custom/power"],
+
+  "custom/launcher": { "format": "// run", "tooltip": false, "on-click": "wofi -c ~/.config/wofi/config -I" },
+  "custom/wall": { "format": "wall", "tooltip": false, "on-click": "~/.config/sway/scripts/wallsel.sh" },
+  "custom/power": { "format": "⏻", "tooltip": false, "on-click": "~/.config/sway/scripts/powermenu.sh" },
+
+  "sway/workspaces": { "disable-scroll": true, "format": "{name}" },
+  "sway/window": { "format": "{}", "max-length": 40 },
+  "clock": { "format": "{:%H:%M  //  %d.%m.%Y}", "interval": 30 },
+  "cpu": { "format": "cpu {usage}%", "interval": 2 },
+  "memory": { "format": "mem {percentage}%", "interval": 5 },
+  "backlight": { "format": "lux {percent}%", "on-scroll-up": "brightnessctl set +5%", "on-scroll-down": "brightnessctl set 5%-" },
+  "pulseaudio": {
+    "format": "vol {volume}%",
+    "format-muted": "vol muted",
+    "on-click": "pavucontrol",
+    "on-click-right": "pactl set-sink-mute @DEFAULT_SINK@ toggle",
+    "scroll-step": 5
+  },
+  "bluetooth": { "format": "bt", "format-off": "bt off", "format-connected": "bt {device_alias}", "on-click": "blueman-manager" },
+  "network": {
+    "format-wifi": "wired {signalStrength}%",
+    "format-ethernet": "wired //",
+    "format-disconnected": "offline",
+    "on-click": "nm-connection-editor"
+  },
+  "battery": {
+    "format": "bat {capacity}%",
+    "format-charging": "bat {capacity}% +",
+    "states": { "warning": 25, "critical": 10 }
+  },
+  "tray": { "spacing": 8 }
+}
