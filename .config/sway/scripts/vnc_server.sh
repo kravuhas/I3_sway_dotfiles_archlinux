@@ -35,7 +35,7 @@ function checkIfRunning() {
 }
 
 function on() {
-    wayvnc 0.0.0.0 &
+    wayvnc 127.0.0.1 &
 		setStateOn
 		pkill '-RTMIN+5' waybar
 }

@@ -1,79 +1,35 @@
-# Personal dotfiles for Arch Linux & Sway.
+# Sway dotfiles (SwayFX + Waybar + Kitty + Wofi) — Arch Linux
 
-This is the result of my attempt at ricing Sway desktop and creating a beautiful, aesthetic theme for it.
+![preview](preview.png)
+![preview 2](preview-2.png)
 
-![Preview](preview.png)
+Meu setup de Sway com efeitos do **SwayFX** (blur, cantos arredondados).
 
-![Preview](preview-2.png)
+## Componentes
 
-I heavily recommend (if you actually want to use my configs) to fork this repository and change stuff according to your needs. You really don't need all the things I need, and your Sway key bindings or even VSCode extensions may be completely different. And especially your monitor setup!
-Treat these dotfiles as a solid, sensible base package for your own dotfiles. Enjoy!
+- WM: SwayFX
+- Barra: Waybar
+- Terminal: Kitty
+- Launcher: Wofi
+- Ícones: Papirus-Dark
+- Shell: zsh
 
-## Features
+## Instalação
 
-- Sensible Sway configuration defaults with quality-of-life tweaks.
-- Custom Waybar styling and configuration.
-- Custom Wofi styling and configuration.
-- Alacritty styling and configuration.
-- Matching wallpaper :)
-- Fully fledged Arch & Sway installation scripts.
-- Solid VSCode configuration and extension packages.
-- Zsh & Oh My Zsh automatically configured with autocompletions and syntax highlighting on Cypher theme.
-- Firefox, Telegram and Discord installed and configured for different workspaces.
-
-## Installation
-
-First install Git and clone the repository using the command below.
-
-```
-pacman -Sy git
-git clone https://github.com/SocketByte/dotfiles
+```bash
+git clone https://github.com/kravuhas/I3_sway_dotfiles_archlinux.git ~/dotfiles
+cd ~/dotfiles
+./install.sh
 ```
 
-### Full Arch & Sway installation.
+O script faz backup das suas configs antigas antes de sobrescrever.
 
-These scripts were made for configurability and flexibility, please configure them accordingly to your taste. **Especially your drive device name and partitioning**.
+## Antes de usar, ajuste
 
-```
-nano dotfiles/install_full.sh
-```
+- **Monitor:** em `~/.config/sway/config` há `output DP-1 resolution 1920x1080@144Hz`. Troque pelo seu monitor (veja com `swaymsg -t get_outputs`).
+- **Teclado:** em `~/.config/sway/config.d/input` o layout está configurado para o meu teclado.
+- **VNC:** o script `vnc_server.sh` abre o `wayvnc` na rede. Só use se entender o risco.
 
-_IMPORTANT_: If you're using a different user name than "user" you must also change the user name in the `/install.sh`.
+## Créditos
 
-When you're ready to go - just run the script and let the magic happen!
-
-```
-./dotfiles/install_full.sh
-```
-
-After installation the script will automatically reboot your PC.
-
-### Only Sway
-
-This is for people that are _very cool_ and made it past the Arch Way's installation process. This script will install Sway and other important utilities. (And dotfiles, of course)
-
-Of course like in the full script - you really should look into what you're installing.
-
-Running the script is magically easy!
-
-```
-./dotfiles/install.sh
-```
-
-_Remember to run this script while mounted on your root partition!_
-
-## Caveats
-
-- Oh My Zsh installation is currently pretty borked, you have to manually download and install all the required things.
-- There's no support for any virtualized environment due to Wayland being barely supported on VMware or VirtualBox.
-- You can't use Nvidia proprietary drivers with Sway. _Always_ use Nouveau.
-
-```
-All proprietary graphics drivers are unsupported.
-This includes the Nvidia proprietary driver.
-The open source Nouveau driver is required instead.
-This is not going to change, don't ask.
-Tip: buy your hardware with open source support in mind.
-
-~ Sway Wiki
-```
+Baseado nos dotfiles de [SocketByte](https://github.com/SocketByte/dotfiles).
