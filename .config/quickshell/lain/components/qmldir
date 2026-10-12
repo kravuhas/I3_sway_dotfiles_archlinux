@@ -1,0 +1,11 @@
+singleton Theme 1.0 Theme.qml
+singleton State 1.0 State.qml
+singleton Net 1.0 Net.qml
+Bar 1.0 Bar.qml
+Chip 1.0 Chip.qml
+IconBtn 1.0 IconBtn.qml
+Track 1.0 Track.qml
+Panel 1.0 Panel.qml
+MusicPanel 1.0 MusicPanel.qml
+NetPanel 1.0 NetPanel.qml
+VolPanel 1.0 VolPanel.qml
